@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %}
+    درباره من | one note
+{% endblock title %}
+     {% block content %}
+
+<div
+  class="content flex justify-between mx-auto mt-8 w-3/5 bg-slate-50 shadow-xl p-6"
+>
+  <div class="max-w-[60%]">
+    <div class="head text-xl font-semibold mr-5 mb-6">من کیستم؟</div>
+    <div class="mr-5 body">
+      سلام. قطعا هممون کارتون باحال کاراگاه جکت رو دیدیم و کلی باهاش حال کردیم.
+      این کاراگاه دوست داشتنیمون وقتی یک نامه دریافت میکرد بعد باز کردن نامه و
+      خواندنش نامه به صورت خودکار آتیش میگرفت تا بقیه نتونن بخوننش و حالا من یک
+      سیستمی ساختم که این قابلیت رو داره و میتونیم توش یک سری نامه ایجاد کنیم که
+      بعد از خوانده شدن از بین برن. با این تفاوت که میشود تعداد خواننده ها را
+      مشخص کرد. میتوانید خودتان امتحان کنید:
+      <a href="{% url 'create' %}" class="text-teal-500"
+        >برای ایجاد پیام اینجا کلیک کنید</a
+      >.
+    </div>
+  </div>
+  <div class="icon max-w-[50%]">
+    <img
+      src="{% static 'image/images.jpg' %}"
+      style="width: 15rem"
+      class="rounded-full"
+    />
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style type="text/tailwindcss">
+      @layer utilities{
+        .nav-bar-item{
+            @apply mx-5
+        }
+      }
+    </style>
+    <title>
+    {% block title %}
+      
+    {% endblock title %}
+      </title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'image/favicon.png' %}" >
+  </head>
+  <body dir="rtl" style="font-family: Vazirmatn;">
+    <header>
+      <nav class="flex mt-2 justify-between">
+        <div class="nav-bar-items flex flex-col sm:flex-row">
+          <div class="nav-bar-item"><a href="{% url 'about'%}">صفحه اصلی</a></div>
+        <div class="nav-bar-item"><a href="{% url 'create' %}">ایجاد</a></div>
+        <div class="nav-bar-item"><a href="{% url 'about' %}">درباره</a></div>
+    </div>
+    <div class="icon">
+        <img src="" alt="">
+    </div>
+      </nav>
+    </header>
+    <main>
+      
+      {% block content %}
+        
+      {% endblock content %}
+        
+    </main>
+  </body>
+</html>

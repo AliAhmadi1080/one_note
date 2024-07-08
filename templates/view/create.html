@@ -1,0 +1,79 @@
+{% extends 'base.html' %} 
+{% block title %}
+ایجاد پیام | one note
+{% endblock title %}
+  {% block content %}
+<div
+  class="xl:w-2/5 md:w-4/5 bg-slate-50 h-full mx-auto my-[5%] shadow-lg flex flex-col p-8"
+>
+  <div class="title"><p class="text-xl mb-4">فرم ایجاد پیام</p></div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="flex flex-col justify-around max-w-[45%] md:flex-row">
+      <div class="sm:ml-4 w-full">
+        <input
+          type="text"
+          name="title"
+          maxlength="63"
+          required
+          aria-describedby="id_title_helptext"
+          id="id_title"
+          placeholder="عنوان"
+          class="border-slate-300 border px-2"
+        />
+        <div class="help-text">{{form.title.help_text}}</div>
+      </div>
+      <div class="sm:ml-4 w-full">
+        <input
+          type="text"
+          name="who"
+          maxlength="63"
+          required
+          aria-describedby="id_who_helptext"
+          id="id_who"
+          placeholder="نام شما"
+          class="border-slate-300 border px-2"
+        />
+        <div class="help-text">{{form.who.help_text}}</div>
+      </div>
+    </div>
+    <br />
+    <div class="count max-w-[73%]">
+      <input
+        type="number"
+        name="count"
+        value="1"
+        min="1"
+        required
+        aria-describedby="id_count_helptext"
+        id="id_count"
+        placeholder="مقدار"
+        class="border-slate-300 border w-full px-2"
+      />
+      <div class="help-text">{{form.count.help_text}}</div>
+    </div>
+    <br />
+    <div class="body max-w-[73%] h-52">
+      <textarea
+        name="body"
+        cols="40"
+        rows="10"
+        required
+        aria-describedby="id_body_helptext"
+        id="id_body"
+        placeholder="متن"
+        class="border-slate-300 border px-2 w-full h-2/3"
+      ></textarea>
+      <div class="help-text">{{form.body.help_text}}</div>
+    </div>
+    <div class="flex flex-row justify-end">
+      <button type="submit" class="bg-blue-600 p-4 rounded-lg">ارسال</button>
+    </div>
+  </form>
+  <div class="content bg-emerald-300 w-3/4">
+    {% if content %} {{content}} <br />
+    <span>آدرس</span>
+    <a href="{{url}}">{{url}}</a> {% endif %}
+  </div>
+</div>
+{% endblock content %}

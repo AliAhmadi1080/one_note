@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<div class="content flex flex-col mx-auto mt-8 w-3/5 bg-slate-50 shadow-xl p-6">
+  <div class="mb-5 text-xl">{{note.title}}</div>
+  <div class="mb-5 text-gray-400">از ظرف {{note.who}}</div>
+  <div class="body w-[100%] sm:w-[80%] md:w-[70%] lg:w-[55%]">
+    {{note.body}}
+    <span class="mr-12 border-b-4 border-black">تعداد دفعات مانده:{{note.count}}</span>
+  </div>
+</div>
+{% endblock content %}
