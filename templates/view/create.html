@@ -1,8 +1,24 @@
 {% extends 'base.html' %} 
-{% block title %}
-ایجاد پیام | one note
-{% endblock title %}
-  {% block content %}
+{% block title %} ایجاد پیام | one note {% endblock title %}
+ {% block content %}
+ <style>
+
+#copyButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#copyButton:hover {
+    background-color: #0056b3;
+}
+
+ </style>
 <div
   class="xl:w-2/5 md:w-4/5 bg-slate-50 h-full mx-auto my-[5%] shadow-lg flex flex-col p-8"
 >
@@ -73,7 +89,23 @@
   <div class="content bg-emerald-300 w-3/4">
     {% if content %} {{content}} <br />
     <span>آدرس</span>
-    <a href="{{url}}">{{url}}</a> {% endif %}
-  </div>
+    <a href="{{url}}" id="textToCopy">{{url}}</a>
 </div>
+    <button id="copyButton">کپی متن</button>
+    {% endif %}
+  
+</div>
+<script>
+  document.getElementById("copyButton").addEventListener("click", function () {
+    const textToCopy = document.getElementById("textToCopy").innerText;
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        alert("متن کپی شد!");
+      })
+      .catch((err) => {
+        console.error("خطا در کپی متن: ", err);
+      });
+  });
+</script>
 {% endblock content %}

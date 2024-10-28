@@ -6,4 +6,6 @@ from .models import Note
 def create_slug(sender,instance:Note,created,*args, **kwargs):
     if created:
         instance.slug = instance.who+'-'+instance.title+'-'+str(instance.id)
+        instance.slug = instance.slug.replace(' ','-')
+        print(instance.slug)
         instance.save()
